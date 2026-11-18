@@ -7,10 +7,10 @@ const DAILY_TASKS = {
 };
 
 export default function App() {
-  const params = new URLSearchParams(window.location.search);
-  const taskKey = params.get("task");
+  const pathParts = window.location.pathname.split("/").filter(Boolean);
+  const slug = pathParts[0] === "challenges" ? pathParts[1] : pathParts[0];
 
-  const ActiveComponent = DAILY_TASKS[taskKey] || SignupWizard;
+  const ActiveComponent = DAILY_TASKS[slug] || SignupWizard;
 
   return <ActiveComponent />;
 }
