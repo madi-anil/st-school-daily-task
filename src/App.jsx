@@ -1,44 +1,16 @@
-import { useState } from "react";
+import SignupWizard from "./challenges/multi-step-signup/SignupWizard";
 import PomodoroTimer from "./challenges/Pomodorotimer/PomodoroTimer";
 
-
-const DAILY_TASKS = [
-  { id: "pomodoro-timer", label: "Challenge 4: Pomodoro Timer", Component: PomodoroTimer },
-
-];
+const DAILY_TASKS = {
+  "multi-step-signup": SignupWizard,
+  "pomodoro-timer": PomodoroTimer,
+};
 
 export default function App() {
   const params = new URLSearchParams(window.location.search);
-  const initialId = params.get("task") || DAILY_TASKS[0].id;
+  const taskKey = params.get("task");
 
-  const [selectedId, setSelectedId] = useState(initialId);
-  const activeTask = DAILY_TASKS.find((t) => t.id === selectedId) || DAILY_TASKS[0];
-  const ActiveComponent = activeTask.Component;
+  const ActiveComponent = DAILY_TASKS[taskKey] || SignupWizard;
 
-  const handleSelect = (id) => {
-    setSelectedId(id);
-    window.history.replaceState(null, "", `?task=${id}`);
-  };
-
-  return (
-    <div style={{ maxWidth: "800px", margin: "0 auto", padding: "1rem", fontFamily: "sans-serif" }}>
-      <nav style={{ display: "grid", gap: "0.5rem", flexWrap: "wrap", marginBottom: "1.5rem" }}>
-        {DAILY_TASKS.map((task) => (
-          <button
-            key={task.id}
-            type="button"
-            onClick={() => handleSelect(task.id)}
-            disabled={task.id === activeTask.id}
-            style={{ padding: "0.5rem 1rem", cursor: task.id === activeTask.id ? "default" : "pointer" }}
-          >
-            {task.label}
-          </button>
-        ))}
-      </nav>
-
-      <main>
-        <ActiveComponent />
-      </main>
-    </div>
-  );
+  return <ActiveComponent />;
 }
