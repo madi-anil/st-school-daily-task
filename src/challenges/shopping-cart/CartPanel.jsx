@@ -100,12 +100,15 @@ export default function CartPanel() {
                 type="text"
                 placeholder="Coupon (try SAVE10)"
                 value={couponInput}
-                onChange={(e) => setCouponInput(e.target.value)}
+                onChange={(e) => {
+                  setCouponInput(e.target.value);
+                  if (couponError) setCouponError("");
+                }}
               />
               <button type="submit">Apply</button>
             </div>
-            {couponError && <p role="alert" style={{ color: "tomato" }}>{couponError}</p>}
-            {appliedCoupon && <p style={{ color: "lightgreen" }}>SAVE10 applied (10% off)</p>}
+            {couponError && <p role="alert" style={{ color: "#f00909" }}>{couponError}</p>}
+            {appliedCoupon && <p style={{ color: "Blue" }}>SAVE10 applied (10% off)</p>}
           </form>
 
           <div>
