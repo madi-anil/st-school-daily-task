@@ -27,6 +27,9 @@ class NoteCreate(BaseModel):
     title: Optional[str] = None
     body: Optional[str] = ""
 
+@app.get("/")
+def health():
+    return {"status": "ok"}
 
 @app.get("/api/notes", status_code=status.HTTP_200_OK)
 def list_notes():
