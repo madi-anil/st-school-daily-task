@@ -4,7 +4,9 @@ import ShoppingCartApp from "./challenges/shopping-cart/ShoppingCartApp";
 import { PostExplorer } from "./challenges/PostExplorer/components/PostExplorer";
 import EmployeeDirectory from "./challenges/Performance_Tuned_Big_List/components/EmployeeDirectory";
 import NotesBoard from "./challenges/notes-board/frontend/NotesBoard";
-
+import SignupForm from "./challenges/Server_Validated _Signup/frontend/SignupForm";
+import ProductCatalog from "./challenges/Paginated_Product_Catalog/frontend/ProductCatalog";
+import TextAnalyzer from "./challenges/Text_Analyzer/frontend/TextAnalyzer";
 
 const DAILY_TASKS = {
   "notes-board": NotesBoard,
@@ -13,13 +15,16 @@ const DAILY_TASKS = {
   "pomodoro-timer": PomodoroTimer,
   "PostExplorer": PostExplorer,
   "performance-tuned-big-list": EmployeeDirectory,
+  "server-validated-signup": SignupForm,
+  "paginated-product-catalog": ProductCatalog,
+  "textAnalyzer": TextAnalyzer,
 };
 
 export default function App() {
   const pathParts = window.location.pathname.split("/").filter(Boolean);
   const slug = pathParts[0] === "challenges" ? pathParts[1] : pathParts[0];
 
-  const ActiveComponent = DAILY_TASKS[slug] || NotesBoard;
+  const ActiveComponent = DAILY_TASKS[slug] || TextAnalyzer;
 
   return <ActiveComponent />;
 }

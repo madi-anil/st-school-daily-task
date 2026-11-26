@@ -1,0 +1,88 @@
+.signup-card {
+    max-width: 420px;
+    margin: 2.5rem auto;
+    padding: 1.75rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #1f1f1f;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.signup-card h2 {
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+}
+
+.signup-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.signup-field label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+.signup-field input {
+    padding: 0.6rem 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.signup-field input:focus {
+    outline: none;
+    border-color: #1a73e8;
+}
+
+.signup-error {
+    color: #d93025;
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+}
+
+.signup-success {
+    background: #e6f4ea;
+    color: #137333;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+.signup-alert {
+    background: #fce8e6;
+    color: #c5221f;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+.signup-btn {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background: #1a73e8;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+}
+
+.signup-btn:disabled {
+    background: #9aa0a6;
+    cursor: not-allowed;
+}
+
+.signup-card h2 {
+  margin: 0 0 20px;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #2252bb;
+  text-align: center;
+
+}
