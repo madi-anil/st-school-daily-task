@@ -66,7 +66,7 @@ export default function TextAnalyzer() {
                 checked={ignoreStopWords}
                 onChange={(e) => setIgnoreStopWords(e.target.checked)}
               />
-              Exclude stop words (the, a, is...)
+              Exclude stop words
             </label>
           </div>
 
