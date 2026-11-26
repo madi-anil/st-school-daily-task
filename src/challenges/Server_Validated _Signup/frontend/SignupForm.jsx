@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import './SignupForm.css';
 
+const API_URL = `${import.meta.env.VITE_API_URL || 'http://localhost:8080'}/api/register`;
+
 export default function SignupForm() {
     const [form, setForm] = useState({
         name: '',
@@ -16,7 +18,6 @@ export default function SignupForm() {
         const { name, value } = e.target;
         setForm((prev) => ({ ...prev, [name]: value }));
 
-        
         if (errors[name]) {
             setErrors((prev) => {
                 const next = { ...prev };
@@ -40,7 +41,7 @@ export default function SignupForm() {
         };
 
         try {
-            const res = await fetch('http://localhost:8080/api/register', {
+            const res = await fetch(API_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload),
@@ -49,23 +50,17 @@ export default function SignupForm() {
             const data = await res.json();
 
             if (res.status === 201) {
-                setCreatedUser(data);
+                setCreatedUser({ ...data, name: form.name.trim() });
                 setForm({ name: '', email: '', password: '', age: '' });
             } else if (data.errors) {
                 setErrors(data.errors);
             }
         } catch {
-            setErrors({ general: 'Cannot connect to backend on http://localhost:8080' });
+            setErrors({ general: 'Cannot connect to backend server.' });
         } finally {
             setSubmitting(false);
         }
     };
-
-    <div className="signup-container">
-  <div className="signup-card">
-    <h2>Create Account</h2>
-  </div>
-</div>
 
     return (
         <div className="signup-card">

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./ProductCatalog.css";
 
-const API_BASE = "http://localhost:8080/api/products";
+const API_URL = `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/products`;
 
 export default function ProductCatalog() {
   const [items, setItems] = useState([]);
@@ -32,7 +32,7 @@ export default function ProductCatalog() {
       });
 
       try {
-        const res = await fetch(`${API_BASE}?${params.toString()}`, {
+        const res = await fetch(`${API_URL}?${params.toString()}`, {
           signal: controller.signal,
         });
         const data = await res.json();
@@ -46,11 +46,11 @@ export default function ProductCatalog() {
         }
 
         setItems(data.items);
-        setTotal(data.total);
+        setTotal(data.totalItems ?? data.total ?? 0);
         setTotalPages(data.totalPages);
       } catch (err) {
         if (err.name !== "AbortError") {
-          setError("Cannot reach server on port 8080.");
+          setError("Cannot reach backend server.");
         }
       } finally {
         if (!controller.signal.aborted) {
@@ -106,16 +106,17 @@ export default function ProductCatalog() {
         <select value={category} onChange={handleCategoryChange}>
           <option value="">All Categories</option>
           <option value="Electronics">Electronics</option>
-          <option value="Accessories">Accessories</option>
           <option value="Audio">Audio</option>
-          <option value="Wearables">Wearables</option>
+          <option value="Accessories">Accessories</option>
+          <option value="Home">Home</option>
+          <option value="Fitness">Fitness</option>
         </select>
 
         <select value={sort} onChange={handleSortChange}>
           <option value="id">Sort: Default (ID)</option>
           <option value="price_asc">Price: Low to High</option>
           <option value="price_desc">Price: High to Low</option>
-          <option value="name">Name: A to Z</option>
+          <option value="name_asc">Name: A to Z</option>
         </select>
 
         <select value={size} onChange={handleSizeChange}>

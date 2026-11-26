@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./TextAnalyzer.css";
 
-const API_URL = "http://localhost:8080/api/analyze";
+const API_URL = `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/analyze`;
 
 export default function TextAnalyzer() {
   const [text, setText] = useState("");
@@ -31,7 +31,7 @@ export default function TextAnalyzer() {
 
       setResult(data);
     } catch {
-      setError("Cannot connect to backend server on port 8080.");
+      setError("Cannot connect to backend server.");
       setResult(null);
     } finally {
       setLoading(false);
