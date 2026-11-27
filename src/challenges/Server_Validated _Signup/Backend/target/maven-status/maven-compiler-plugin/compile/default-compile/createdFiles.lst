@@ -1,7 +1,0 @@
-com\challenge\backend\dto\RegisterResponse.class
-com\challenge\backend\BackendApplication.class
-com\challenge\backend\exception\GlobalExceptionHandler.class
-com\challenge\backend\dto\RegisterRequest.class
-com\challenge\backend\exception\DuplicateEmailException.class
-com\challenge\backend\controller\AuthController.class
-com\challenge\backend\model\User.class

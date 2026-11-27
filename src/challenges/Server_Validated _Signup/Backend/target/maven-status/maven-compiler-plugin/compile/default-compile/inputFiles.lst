@@ -1,7 +1,0 @@
-C:\student-tribe-java\st-school-daily-task\src\challenges\Server_Validated _Signup\Backend\src\main\java\com\challenge\backend\BackendApplication.java
-C:\student-tribe-java\st-school-daily-task\src\challenges\Server_Validated _Signup\Backend\src\main\java\com\challenge\backend\controller\AuthController.java
-C:\student-tribe-java\st-school-daily-task\src\challenges\Server_Validated _Signup\Backend\src\main\java\com\challenge\backend\dto\RegisterRequest.java
-C:\student-tribe-java\st-school-daily-task\src\challenges\Server_Validated _Signup\Backend\src\main\java\com\challenge\backend\dto\RegisterResponse.java
-C:\student-tribe-java\st-school-daily-task\src\challenges\Server_Validated _Signup\Backend\src\main\java\com\challenge\backend\exception\DuplicateEmailException.java
-C:\student-tribe-java\st-school-daily-task\src\challenges\Server_Validated _Signup\Backend\src\main\java\com\challenge\backend\exception\GlobalExceptionHandler.java
-C:\student-tribe-java\st-school-daily-task\src\challenges\Server_Validated _Signup\Backend\src\main\java\com\challenge\backend\model\User.java

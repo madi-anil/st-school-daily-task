@@ -1,4 +1,0 @@
-com\challenge\catalog\model\Product.class
-com\challenge\catalog\controller\ProductController.class
-com\challenge\catalog\dto\ProductPageResponse.class
-com\challenge\catalog\CatalogApplication.class
