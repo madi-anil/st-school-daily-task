@@ -1,9 +1,9 @@
-package com.challenge.unified.expenses.controller;
+package com.challenge.expenses.controller;
 
-import com.challenge.unified.expenses.dto.ExpenseRequest;
-import com.challenge.unified.expenses.dto.SummaryResponse;
-import com.challenge.unified.expenses.model.Expense;
-import com.challenge.unified.expenses.service.ExpenseSummaryService;
+import com.challenge.expenses.dto.ExpenseRequest;
+import com.challenge.expenses.dto.SummaryResponse;
+import com.challenge.expenses.model.Expense;
+import com.challenge.expenses.service.ExpenseSummaryService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
